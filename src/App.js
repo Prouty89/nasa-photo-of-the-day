@@ -1,31 +1,43 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios'
+import Title from './Title'
 import "./App.css";
-
-// const [file, setFile] = useState();
-
-
-// console.log(file.date)
+import NasaCard from "./NasaCard";
 
 function App() {
-  const [file, setFile] = useState();
-  useEffect(() => {
-    axios.get('https://api.nasa.gov/planetary/apod?api_key=zZp02OALIOiVrMFtA2rwcnuYN4lnSFWMHQqX2BA6')
-    .then((info) => {
-      setFile(info.data)
-      console.log('API Data: ', info.data)
+  const[data, setData] = useState();
+  const[date, setDate] = useState("2019-07-17")
+
+//Fetch data using hooks
+useEffect(() => {
+  const fetchData = async () => {
+    return await axios.get("https://api.nasa.gov/planetary/apod", {
+      params: {
+        date: date,
+        api_key:"zZp02OALIOiVrMFtA2rwcnuYN4lnSFWMHQqX2BA6"
+      }
     })
-    .catch(error => {
-      console.log('This API is not functional: ', error)
-    })
-  }, [])
-  console.log(file.date)
+  };
+  fetchData()
+  .then(response => {
+    setData(response.data)
+  })
+  .catch(error => {
+    console.log(error)
+  })
+}, [date])
+
+const changeEvent = event => {
+  setDate(event.target.value);
+};
+if (!data) {
+  return <div className="loading">Loading...</div>;
+}
+
   return (
     <div className="App">
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun 🚀!
-      </p>
+     <Title />
+     <NasaCard data={data} />
     </div>
   );
 }
