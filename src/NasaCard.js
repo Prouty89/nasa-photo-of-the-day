@@ -14,6 +14,7 @@ const NasaCard = ({ data }) => {
     <section className="nasa-card">
         <h2 className="title">{data.title}</h2>
         {fetchContent()}
+        <h4 className="date">{data.date}</h4>
         <p className="card-paragraph">
             Detail: {data.explanation}
         </p>
