@@ -2,11 +2,11 @@ import React from "react"
 
 const NasaCard = ({ data }) => {
     const fetchContent = () => {
-        //if (data.media_type) === "image") {
-            return <img src={data.url} alt="test" width="350" height="300" />;
-        //}   //if (data.media_type === "video") {
-            //return <iframe src={data.url} width="350" height="300" title="test"/>
-        
+        if (data.media_type === "image") {
+          return <img src={data.url} alt="test" width="350" height="300" />;
+        } else if (data.media_type === "video") {
+          return <iframe src={data.url} width="350" height="300" title="test"/>;
+        }
     }
 
 
