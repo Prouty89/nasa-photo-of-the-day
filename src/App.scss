@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  background-color: slategray;
+  height: 1000px;
+  padding: 25px;
 }
 
 .App-logo {
@@ -19,15 +24,38 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+
+.title {
+  color: goldenrod;
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.description {
+  color: darkgoldenrod;
+}
+
+.date {
+  color: darkslategray;
+}
+
+.nasa-card {
+  border: 2px solid darkslategray;
+  justify-content: center;
+  
+}
+
+.apod-title {
+  color: darkslategray;
+}
+.card-paragraph {
+  margin-left: 50px;
+  margin-right: 50px;
+  border: 2px solid darkslategray;
+  padding: 5px;
+  color: goldenrod;
+}
+
+.card-img{
+  border-radius: 10%;
 }

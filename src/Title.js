@@ -10,6 +10,6 @@ import React from "react";
       </section>
     </>
   );
-};
+  }
 
  export default Title;
