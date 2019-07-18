@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios'
 import Title from './Title'
-import "./App.css";
+import "./App.scss";
 import NasaCard from "./NasaCard";
 
 function App() {
   const[data, setData] = useState();
-  const[date, setDate] = useState("2019-07-17")
+  const[date, setDate] = useState("2019-07-18")
 
 //Fetch data using hooks
 useEffect(() => {
@@ -27,9 +27,6 @@ useEffect(() => {
   })
 }, [date])
 
-const changeEvent = event => {
-  setDate(event.target.value);
-};
 if (!data) {
   return <div className="loading">Loading...</div>;
 }
